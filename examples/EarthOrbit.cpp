@@ -1,3 +1,5 @@
+#define USING_SFML
+
 #include <CppPhysics/Particle.hpp>
 #include <SFML/Graphics.hpp>
 #include <CppPhysics/VectorAlgebra.hpp>
@@ -19,20 +21,20 @@ void printOrbit(Particle::Point const& planet, sf::RenderWindow& window)
   trackerPoint.setFillColor(sf::Color::White);
   for(auto point : orbitTrack)
   {
-  trackerPoint.setPosition((point.x)*2E-9+350, (point.y)*2E-9+350);
+  trackerPoint.setPosition(point*2E-9+VA::Vector3d{350,350,0});
   window.draw(trackerPoint);
   }
   for(auto point : sunTrack)
   {
-  trackerPoint.setPosition((point.x)*2E-9+350, (point.y)*2E-9+350);
+  trackerPoint.setPosition(point*2E-9+VA::Vector3d{350,350,0});
   window.draw(trackerPoint);
   }
   sf::CircleShape ballRender{10, 20};
   ballRender.setFillColor(sf::Color::Yellow);
-  ballRender.setPosition({(sun.getPosition().x)*2E-9-10+350, (sun.getPosition().y)*2E-9-10+350});
+  ballRender.setPosition(sun.getPosition()*2E-9+VA::Vector3d{340,340,0});
   window.draw(ballRender);
   ballRender.setFillColor(sf::Color::Blue);
-  ballRender.setPosition({(planet.getPosition().x)*2E-9-10+350, (planet.getPosition().y)*2E-9-10+350});
+  ballRender.setPosition(planet.getPosition()*2E-9+VA::Vector3d{340,340,0});
   window.draw(ballRender);
 }
 

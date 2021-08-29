@@ -2,7 +2,30 @@
 
 #Install script of CppPhysics libraries for linux - Luca Morelli 2021
 MISSING_F="0";
-echo "CppPhysics installer for linux - Made by Luca Morelli 2021"
+echo ""
+echo "                                             
+           :-..   ......:::::-:.              
+         :+#%*=: .:::::::-+*#%#+=             
+        :+*###+-::::::::::-+####+:..          
+     ....:-+*-   .:::::   .:=*--=++=          
+   ......:::: .::      ...:::::::-=-           CppPhysics installer for linux      
+ .:....:::::.  ..      ..::::::::::.          
+  .....::::.              .:::::::.               Made by Luca Morelli 2021
+  ....::::       ....                
+ .....::.       -+***=:       :-:       :-:         Libraries for Physics 
+ ...... ..    -+*******=:     :-+..     :-+...      
+  ... .:::   =*********#*- .::.:--== .::::--=+        Simulation in C++
+ ..  .::::    -+*******=:     .::       .::  .
+  . .:::::      -+*+*=:        ..        ..              Visit: 
+   ...::::       ....                         
+  .....:::...*-            -=---=.             github.com/MorelliLuca/CppPhysics
+ .:....:::=+#%%*-. .::::::==-:::-=:           
+  .......:-+*#*+-:::------:::::::=:           
+   ........::+. :::::.:::::::::::=.           
+     .........  ::::::::::::::::::.           
+       ......:.. .::::::::::::::.             
+         . .. .   .     .......               
+                                  "
 echo "Checking package for missing files..."
 if [ ! -f lib/VectorAlgebra.hpp ] 
   then echo "Error: VectorAlgebra.hpp is missing"
@@ -26,9 +49,9 @@ then
   echo "Checking for preinstalled version..."
   if [ ! -d /usr/include/CppPhysics ]
     then echo "Installing CppPhysics..."
+    mkdir /usr/include/CppPhysics
     else echo "Updating CppPhysics..."
   fi
-  mkdir /usr/include/CppPhysics
   cp lib/VectorAlgebra.hpp /usr/include/CppPhysics/VectorAlgebra.hpp
   cp lib/Particle.hpp /usr/include/CppPhysics/Particle.hpp
 else exit

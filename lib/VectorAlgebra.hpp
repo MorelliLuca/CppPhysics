@@ -6,6 +6,9 @@
 
 #include <math.h>
 #include <iostream>
+#ifdef USING_SFML
+#include <SFML/Graphics.hpp>
+#endif
 
 namespace VA{
 struct Const{
@@ -68,6 +71,20 @@ operator Vector3<S>() const
 {
     return Vector3<S>{x,y,z};
 }
+
+#ifdef USING_SFML
+template <typename S>
+operator sf::Vector3<S>()
+{
+    return sf::Vector3<S>{x,y,z};
+}
+template <typename S>
+operator sf::Vector2<S>()
+{
+    return sf::Vector2<S>{x,y};
+}
+
+#endif
 
 };
 
