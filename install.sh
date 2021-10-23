@@ -54,5 +54,6 @@ then
   fi
   cp lib/VectorAlgebra.hpp /usr/include/CppPhysics/VectorAlgebra.hpp
   cp lib/Particle.hpp /usr/include/CppPhysics/Particle.hpp
+  cp lib/Misc.hpp /usr/include/CppPhysics/Particle.hpp
 else exit
 fi

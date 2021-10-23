@@ -1,6 +1,6 @@
 #include <CppPhysics/Particle.hpp>
 #include <SFML/Graphics.hpp>
-#include <VectorAlgebra.hpp>
+#include <CppPhysics/VectorAlgebra.hpp>
 #include <iostream>
 #include <thread>
 #include <chrono>
@@ -17,7 +17,7 @@ int main() {
   while (window.isOpen()) {
     double mu;
     std::cin >> mu >> ball.accVelocity().x >> ball.accVelocity().y;
-    while (ball.compute(Particle::Info::Speed)> 0.1 && window.isOpen()) {
+    while (ball.getSpeed()> 0.1 && window.isOpen()) {
       window.clear();
       ballRender.setPosition({ball.getPosition().x*100, ball.getPosition().y*100});
       window.draw(ballRender);
@@ -34,7 +34,7 @@ int main() {
           ball.getPosition().y*100 >= window.getSize().y-60) {
         ball.accVelocity().y *= -1;
       }
-      std::cout<<"V="<<ball.getVelocity()<<"    |V|="<<ball.compute(Particle::Info::Speed)<<'\n';
+      std::cout<<"V="<<ball.getVelocity()<<"    |V|="<<ball.getSpeed()<<'\n';
     while (window.pollEvent(event)) {
       // "close requested" event: we close the window
       if (event.type == sf::Event::Closed)
